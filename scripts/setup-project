@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+MACHINE="stm32mp15-disco"
+DISTRO="openstlinux-weston"
+
+source oe-init-build-env build
