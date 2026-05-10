@@ -6,7 +6,7 @@ BBPATH = "${TOPDIR}"
 BBFILES ?= ""
 
 BBLAYERS ?= " \
-  ${TOPDIR}/../sources/openembedded-core/meta \
+  ${TOPDIR}/../sources/poky/meta \
   ${TOPDIR}/../sources/meta-dj-ctrl \
   ${TOPDIR}/../sources/meta-qt6 \
   ${TOPDIR}/../sources/meta-st/meta-st-openstlinux \

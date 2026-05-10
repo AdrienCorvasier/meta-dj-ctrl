@@ -1,6 +1,25 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-cp sources/meta-dj-ctrl/scripts/bblayers.conf.sample build/conf/bblayers.conf
-cp sources/meta-dj-ctrl/scripts/local.conf.sample build/conf/local.conf
+script_path="$(realpath "${BASH_SOURCE[0]}")"
+script_dir="$(dirname "$script_path")"
+project_root="$(realpath "$script_dir/../../..")"
 
-source sources/openembedded-core/oe-init-build-env build
+if [ "$(pwd)" != "$script_dir" ] && [ "$(pwd)" != "$project_root" ]; then
+    echo "ERROR: This script must be run from either the script directory or the project root."
+    echo "Allowed directories:"
+    echo "  $script_dir"
+    echo "  $project_root"
+    echo "Current directory:"
+    echo "  $(pwd)"
+    exit 1
+fi
+
+mkdir -p "$project_root/build/conf"
+
+cp "$script_dir/bblayers.conf.sample" "$project_root/build/conf/bblayers.conf"
+cp "$script_dir/local.conf.sample" "$project_root/build/conf/local.conf"
+
+set +u
+source "$project_root/sources/poky/oe-init-build-env" "$project_root/build"
+set -u
