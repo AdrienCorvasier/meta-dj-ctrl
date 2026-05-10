@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-MACHINE="stm32mp15-disco"
-DISTRO="openstlinux-weston"
+cp sources/meta-dj-ctrl/scripts/bblayers.conf.sample build/conf/bblayers.conf
+cp sources/meta-dj-ctrl/scripts/local.conf.sample build/conf/local.conf
 
-source oe-init-build-env build
+source sources/openembedded-core/oe-init-build-env build
