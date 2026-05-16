@@ -1,5 +1,5 @@
 MACHINE = "stm32mp15-disco"
-DISTRO = "openstlinux-weston"
+DISTRO = "dj-ctrl-weston"
 
 PACKAGE_CLASSES ?= "package_ipk"
 EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
